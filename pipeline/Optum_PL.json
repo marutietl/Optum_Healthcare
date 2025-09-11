@@ -1,0 +1,72 @@
+{
+	"name": "Optum_PL",
+	"properties": {
+		"activities": [
+			{
+				"name": "RawFiles2Bronze_PL",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "RawFiles2Bronze_PL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Bronze2Silver",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "RawFiles2Bronze_PL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Bronze2Silver",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Silver2Gold_PL",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Bronze2Silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Silver2Gold_PL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-09-11T08:11:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

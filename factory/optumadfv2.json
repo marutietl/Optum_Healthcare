@@ -1,0 +1,9 @@
+{
+	"name": "optumadfv2",
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1cb67b48-a8d9-4506-9c05-77c6e68b852c",
+		"tenantId": "47b83181-3ec5-4a73-96bf-6eb4dda2467d"
+	}
+}

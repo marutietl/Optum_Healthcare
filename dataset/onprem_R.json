@@ -1,0 +1,16 @@
+{
+	"name": "onprem_R",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Onpremls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`hospital`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

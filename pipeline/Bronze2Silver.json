@@ -1,0 +1,281 @@
+{
+	"name": "Bronze2Silver",
+	"properties": {
+		"activities": [
+			{
+				"name": "claims_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/claims_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SubGroup_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/subgroup_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Group_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/group_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "generic_connecter_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/generic_connecters"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Disease_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/disease_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Patient_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/Patient_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Hospital_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/Hospital_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "generic_transformation_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/generic_transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Subscriber_NB",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "generic_transformation_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "generic_connecter_NB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/marutidodmani.cloud02@gmail.com/subscriber_Transformation"
+				},
+				"linkedServiceName": {
+					"referenceName": "dbx2adf_ls",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-09-09T17:00:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
