@@ -35,7 +35,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Bronze2Silver",
+						"referenceName": "Bronze2Silver_PL",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
